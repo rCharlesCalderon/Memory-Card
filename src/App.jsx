@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import Cards from "./Cards";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [skins, setSkins] = useState([]);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  function modifyData(response) {
+    let modifiedData = response.data.filter((skin) => {
+      return (
+        (skin.assetPath.includes("Melee") &&
+          skin.displayName.includes("Personal Administrative Melee Unit")) ||
+        skin.displayName.includes("Champions 2022 Butterfly Knife") ||
+        skin.displayName.includes("VCT LOCK//IN Misericórdia") ||
+        skin.displayName.includes("Ruyi Staff") ||
+        skin.displayName.includes("Winterwunderland Candy Cane")
+      );
+    });
+    modifiedData.map((obj) => {
+      obj.clicked = false;
+    });
+
+    setSkins([...modifiedData]);
+  }
+  useEffect(() => {
+    fetch("https://valorant-api.com/v1/weapons/skins", {
+      mode: "cors",
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (response) {
+        modifyData(response);
+      });
+  }, []);
+
+  return <Cards skins={skins} setSkins={setSkins} />;
 }
 
-export default App
+export default App;
