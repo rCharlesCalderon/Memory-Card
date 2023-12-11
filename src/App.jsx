@@ -9,24 +9,32 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
 
   function modifyData(response) {
-    let modifiedData = response.data.filter((skin) => {
+    let modifidedObject = response.data.filter((obj) => {
       return (
-        (skin.assetPath.includes("Melee") &&
-          skin.displayName.includes("Personal Administrative Melee Unit")) ||
-        skin.displayName.includes("Champions 2022 Butterfly Knife") ||
-        skin.displayName.includes("VCT LOCK//IN Misericórdia") ||
-        skin.displayName.includes("Ruyi Staff") ||
-        skin.displayName.includes("Winterwunderland Candy Cane")
+        obj.displayName.includes("Gekko") ||
+        obj.displayName.includes("Omen") ||
+        obj.displayName.includes("Cypher") ||
+        obj.displayName.includes("Viper") ||
+        obj.displayName.includes("Astra") ||
+        obj.displayName.includes("Killjoy") ||
+        obj.displayName.includes("Jett") ||
+        obj.displayName.includes("Kayo") ||
+        obj.displayName.includes("Sage") ||
+        obj.displayName.includes("Deadlock") ||
+        obj.displayName.includes("Iso") ||
+        obj.displayName.includes("Phoenix") ||
+        obj.displayName.includes("Skye")
+        //INCLDUE ONE MORE
       );
     });
-    modifiedData.map((obj) => {
+    modifidedObject.map((obj) => {
       obj.clicked = false;
     });
-
-    setSkins([...modifiedData]);
+    setSkins([...modifidedObject]);
+    console.log(modifidedObject);
   }
   useEffect(() => {
-    fetch("https://valorant-api.com/v1/weapons/skins", {
+    fetch("https://valorant-api.com/v1/agents", {
       mode: "cors",
     })
       .then(function (response) {

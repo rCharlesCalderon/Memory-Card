@@ -1,6 +1,50 @@
-.header {
-    border: 1px green solid;
+@font-face {
+    font-family: Anton;
+    src: url('./fonts/Anton-Regular.ttf');
+}
+.header-container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    height: 11vh;
+     color: white;
+     font-family: Anton;
+}
+
+.header {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+.header h1{
+    display: flex;
+    align-items: center;
+    letter-spacing: 2px;
+    font-size: 40px;
+  
+}
+.header img {
+    height: 60px;
+    margin-left: 5px;
+}
+.header p {
+    margin-left: 50px;
+    font-size: 18px;
+    font-weight: 600;
+  
+}
+
+.scoreboard-container{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: end;
+    gap: 5px;
+}
+.scoreboard-container p {
+   margin-right: 25px;
+   font-size: 17px;
+   font-weight: 700;
+    letter-spacing: 1px;
 }

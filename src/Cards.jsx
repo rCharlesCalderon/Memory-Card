@@ -2,10 +2,8 @@ import { useState, useEffect } from "react";
 import "./Cards.css";
 function Cards({ skins, setSkins, score, setScore, setBestScore, bestScore }) {
   function shuffleCards() {
-    console.log(skins, "before");
     let shuffledCards = skins.sort(() => Math.random() - 0.5);
     setSkins([...shuffledCards]);
-    console.log(skins, "after");
   }
 
   function markCard(skin) {
@@ -41,8 +39,11 @@ function Cards({ skins, setSkins, score, setScore, setBestScore, bestScore }) {
   function handleGame(skin) {
     //Literally Shuffles cards
     shuffleCards();
+    //Scoreboard
     incrementScore(skin);
+    //set card property clicked to true
     markCard(skin);
+    //checks for validation of card
     checkCard(skin);
   }
 
@@ -50,8 +51,16 @@ function Cards({ skins, setSkins, score, setScore, setBestScore, bestScore }) {
     <div className="card-container">
       {skins.map((skin, index) => {
         return (
+          //ADD STYLING TO THE CARD INSEAD OF IMG MAYBE?
           <div key={index} className="card" onClick={() => handleGame(skin)}>
-            <img src={skin.displayIcon}></img>
+            <img
+              src={skin.fullPortrait}
+              style={{
+                backgroundImage: `url(${skin.background})`,
+                backgroundColor: `#${skin.backgroundGradientColors[1]}`,
+              }}
+            ></img>
+            <p>{skin.displayName}</p>
           </div>
         );
       })}

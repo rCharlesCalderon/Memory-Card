@@ -1,9 +1,59 @@
+@font-face {
+    font-family: Montserrat;
+    src: url('./fonts/MontserratSubrayada-Regular.ttf');
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    border: 1px black solid;
+    width: 100%;
+    margin-top: 2%;
+    gap: 40px;
+    height:87vh;
+    padding: 10px;
+
 }
 
 .card {
-    border: 1px green solid;
+    display: flex;
+    height: 350px;
+    width: 280px;
+    border-radius: 15px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    border: 4px grey solid;
+     color: white;
 }
+
+
+.card:hover{
+ box-shadow:  0px 8px 19px #FFFACD;
+ border-color: #FFFACD;
+color: red;
+ 
+}
+
+.card img {
+  height: 290px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+border-radius: 10px 11px 0px 0px;
+border-bottom: 1px white solid;
+ }
+ .card p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+    font-family: monospace;
+    letter-spacing: 2px;
+    font-size: 23px;
+    font-family: Montserrat;
+ }
+
+ 
