@@ -5,7 +5,7 @@
 .header-container {
     width: 100%;
     display: flex;
-    height: 11vh;
+    min-height: 11vh;
      color: white;
      font-family: Anton;
 }
@@ -47,4 +47,19 @@
    font-size: 17px;
    font-weight: 700;
     letter-spacing: 1px;
+}
+
+@media (max-width:550px){
+    .header-container {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .header {
+        width: 100%;
+    }
+    .scoreboard-container {
+        text-align: center;
+        width: 100%;
+        align-items: center;
+    }
 }
