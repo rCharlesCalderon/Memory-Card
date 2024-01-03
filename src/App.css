@@ -4,17 +4,23 @@
   padding: 0%;
 }
 
-
+body {
+  
+  background-image: url('./images/1282513.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; 
+  border: 4px black solid;
+  height: 100%;
+}
 
 #root {
 display: flex;
   align-items: center;
   justify-content: center; /* Center horizontally */
   flex-direction: column;
-  background-image: url('./images/1282513.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; /* Cover the entire container */
- 
+  
+  border: 2px green solid;
+  height: 100%;
 }
 
